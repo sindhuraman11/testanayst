@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "8f310033-252d-479f-b183-3b627c185f1a",
+		"name": "AxoneShoppingPortal",
+		"description": "To verify axone shoppoing create customer/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CustomerRegistration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"apr2021webservices20@gmail.com\",\n    \"password\": \"test1234\",\n    \"firstName\": \"aravindh\",\n    \"lastName\": \"praveen\",\n    \"phone\": \"123123123123\",\n    \"addressLine1\": \"new street london\",\n    \"addressLine2\": \"uk\",\n    \"postCode\": \"pg1hyu\",\n    \"country\": \"uk\",\n    \"creditLimit\": 898989\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.8.18.118:3100//customer/signup",
+					"protocol": "http",
+					"host": [
+						"3",
+						"8",
+						"18",
+						"118"
+					],
+					"port": "3100",
+					"path": [
+						"",
+						"customer",
+						"signup"
+					]
+				},
+				"description": "Verify able to register the customer succesfully"
+			},
+			"response": []
+		},
+		{
+			"name": "CustLoginVerifi_validuservalidpass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"token\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"apr2021webservices16@gmail.com\",\n  \"password\": \"test1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.8.18.118:3100//customer/login",
+					"protocol": "http",
+					"host": [
+						"3",
+						"8",
+						"18",
+						"118"
+					],
+					"port": "3100",
+					"path": [
+						"",
+						"customer",
+						"login"
+					]
+				},
+				"description": "CustomerLoginVerification"
+			},
+			"response": []
+		},
+		{
+			"name": "CustLoginVerifi_validuserinvalidpass",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"apr2021webservices16@gmail.com\",\n  \"password\": \"test1234qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.8.18.118:3100//customer/login",
+					"protocol": "http",
+					"host": [
+						"3",
+						"8",
+						"18",
+						"118"
+					],
+					"port": "3100",
+					"path": [
+						"",
+						"customer",
+						"login"
+					]
+				},
+				"description": "CustomerLoginVerification"
+			},
+			"response": []
+		}
+	]
+}
