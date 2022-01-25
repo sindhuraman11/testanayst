@@ -22,5 +22,9 @@ import org.junit.jupiter.api.Test;
         public void run4() {
             System.out.println("The test4 is running");
         }
+        @Test
+        public void run5() {
+            System.out.println("The test5 is running");
+        }
     }
 
